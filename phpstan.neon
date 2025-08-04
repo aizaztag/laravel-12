@@ -1,0 +1,23 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    level: 5
+
+    paths:
+        - app
+        - routes
+
+    excludePaths:
+        - bootstrap/*
+        - storage/*
+        - tests/*
+
+    #inferCollectionTypes: true
+    inferPrivatePropertyTypeFromConstructor: true
+
+    # Optional: to suppress common facade-related false positives
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Support\\Facades\\.*#'
+
+    #memoryLimit: 512M

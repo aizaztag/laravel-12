@@ -44,7 +44,14 @@ jobs:
         run: npm run build
 
       - name: Debug list public/build
-        run: ls -R public/build || echo "No build folder"  
+        run: ls -R public/build || echo "No build folder" 
+
+      - name: Check Vite manifest
+        run: |
+          if [ ! -f public/build/manifest.json ]; then
+            echo "Vite manifest not found!"
+            exit 1
+          fi  
 
       - name: Run tests
         env:

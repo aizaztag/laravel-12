@@ -54,10 +54,7 @@ jobs:
           echo "DB_USERNAME=laravel" >> .env
           echo "DB_PASSWORD=password" >> .env
           
-      - name: Reset database
-        run: php artisan migrate:fresh --seed --force
     
-
       - name: Run migrations
         run: php artisan migrate --force
 

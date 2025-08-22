@@ -1,29 +1,8 @@
-name: Laravel CI
-
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-  workflow_dispatch:
-
-jobs:
-  laravel-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
-          extensions: mbstring, bcmath, pdo_sqlite
-          coverage: none
-
       - name: Copy .env
         run: cp .env.example .env
+
+      - name: Set up environment file
+        run: cp .env.ci .env
 
       - name: Install Composer dependencies
         run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
@@ -31,7 +10,6 @@ jobs:
       - name: Generate application key
         run: php artisan key:generate
 
-      # 👇 Add Node.js setup + asset build here
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -45,10 +23,6 @@ jobs:
 
       - name: Debug list public/build
         run: ls -R public/build || echo "No build folder" 
-
-      - name: Set up environment file
-        run: cp .env.ci .env
-
 
       - name: Run tests
         env:

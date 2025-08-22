@@ -3,7 +3,7 @@ import Login from '../views/Login.vue' // Updated path to views directory
 import Register from '../components/Register.vue' // Assuming Register remains in components
 import Dashboard from '../views/Dashboard.vue' // Updated path to views directory
 import Home from '../views/Home.vue' // Added Home component
-import Posts from '../Pages/Posts.vue'
+import Posts from '../pages/Posts.vue'
 
 const routes = [
   { path: '/', component: Home }, // Route for the home page

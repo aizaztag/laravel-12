@@ -43,6 +43,9 @@ jobs:
       - name: Build frontend assets
         run: npm run build
 
+      - name: Debug: list public/build
+        run: ls -R public/build || echo "No build folder"  
+
       - name: Run tests
         env:
           DB_CONNECTION: sqlite

@@ -1,15 +1,23 @@
 <template>
-  <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded shadow">
-    <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
-    <p class="mb-4">Welcome, {{ user?.name }}!</p>
+  <div class="max-w-4xl mx-auto mt-10 p-8 bg-white rounded-lg shadow-lg">
+    <div class="border-b pb-4 mb-6">
+      <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+      <p class="text-gray-600 mt-2">Welcome, {{ user?.name }}!</p>
+    </div>
 
-    <nav class="mb-6">
-      <router-link to="/posts" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mr-4">
-        Posts
+    <nav class="mb-8">
+      <router-link 
+        to="/posts" 
+        class="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-md transition duration-200 ease-in-out shadow-sm"
+      >
+        <span>Posts</span>
       </router-link>
     </nav>
 
-    <button @click="logout" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+    <button 
+      @click="logout" 
+      class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-6 py-2.5 rounded-md transition duration-200 ease-in-out shadow-sm"
+    >
       Logout
     </button>
   </div>
@@ -24,7 +32,7 @@ export default {
     return {
       user: null
     }
-  },
+    },
   created() {
     this.fetchUser()
   },
@@ -67,4 +75,7 @@ export default {
 </script>
 
 <style scoped>
+.router-link-active {
+  @apply bg-blue-600;
+}
 </style>

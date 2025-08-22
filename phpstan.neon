@@ -15,9 +15,10 @@ parameters:
 
     #inferCollectionTypes: true
     inferPrivatePropertyTypeFromConstructor: true
+    
 
     # Optional: to suppress common facade-related false positives
     ignoreErrors:
-        - '#Call to an undefined method Illuminate\\Support\\Facades\\.*#'
+     
 
     #memoryLimit: 512M
